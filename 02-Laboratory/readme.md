@@ -26,7 +26,6 @@ postgres=$
 
 __Not: Lab dersinin 3. haftasında ilk quiz yapılacaktır.__
 
-
 İçerik ile ilgili olarak;
 - [ ] : Tekrar edilmedi anlamına gelmektedir.
 - [x] : Tekrar edildi anlamına gelmektedir.

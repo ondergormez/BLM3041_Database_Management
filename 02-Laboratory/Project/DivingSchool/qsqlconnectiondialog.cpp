@@ -71,6 +71,14 @@ QSqlConnectionDialog::QSqlConnectionDialog(QWidget *parent)
         ui.dbCheckBox->setEnabled(false);
 
     ui.comboDriver->addItems(drivers);
+
+    // Default values for this project
+    ui.comboDriver->setCurrentIndex(2);
+    ui.editDatabase->setText("divingschooldb");
+    ui.editUsername->setText("divingschooldb");
+    ui.editPassword->setText("SimplePassword");
+    ui.editHostname->setText("192.168.5.19");
+    ui.portSpinBox->setValue(5432);
 }
 
 QSqlConnectionDialog::~QSqlConnectionDialog()

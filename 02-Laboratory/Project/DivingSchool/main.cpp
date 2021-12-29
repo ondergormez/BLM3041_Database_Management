@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     QMainWindow mainWin;
-    mainWin.setWindowTitle(QObject::tr("Qt SQL Browser"));
+    mainWin.setWindowTitle(QObject::tr("Diving School"));
 
     Browser browser(&mainWin);
     mainWin.setCentralWidget(&browser);

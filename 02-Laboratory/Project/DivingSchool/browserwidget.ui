@@ -56,9 +56,32 @@
     </widget>
    </item>
    <item>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string>Öğrenci Veritabanında Mevcut Mu?</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QSpinBox" name="spinBoxStudentID">
+        <property name="maximum">
+         <number>250000</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonFindStudent">
+        <property name="text">
+         <string>Sorgula</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
-      <string>Fiyat Tablosundan En Y�ksek Ka� Tanesini Getireyim?</string>
+      <string>Fiyat Tablosundan En Yüksek Kaç Tanesini Getireyim?</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>

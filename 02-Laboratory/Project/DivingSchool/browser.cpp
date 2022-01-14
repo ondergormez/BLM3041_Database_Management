@@ -72,6 +72,7 @@ Browser::Browser(QWidget *parent)
     connect(pushButtonStudentView, &QPushButton::clicked, this, &Browser::onPushButtonStudentViewClicked);
     connect(pushButtonFetchPrices, &QPushButton::clicked, this, &Browser::onPushButtonFetchPricesClicked);
     connect(pushButtonSequence, &QPushButton::clicked, this, &Browser::onPushButtonSequenceClicked);
+    connect(pushButtonFindStudent, &QPushButton::clicked, this, &Browser::onPushButtonFindStudentClicked);
 
     if (QSqlDatabase::drivers().isEmpty())
         QMessageBox::information(this, tr("No database drivers found"),
@@ -357,4 +358,16 @@ void Browser::onPushButtonSequenceClicked()
     exec();
 
     sqlEdit->clear();
+}
+
+void Browser::onPushButtonFindStudentClicked()
+{
+    QString queryString;
+    queryString += "SELECT is_student_exist('%1');";
+
+    queryString = queryString.arg(spinBoxStudentID->value());
+
+    sqlEdit->clear();
+    sqlEdit->setText(queryString);
+    exec();
 }

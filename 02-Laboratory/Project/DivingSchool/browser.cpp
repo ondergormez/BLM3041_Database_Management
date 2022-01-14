@@ -71,6 +71,7 @@ Browser::Browser(QWidget *parent)
 
     connect(pushButtonStudentView, &QPushButton::clicked, this, &Browser::onPushButtonStudentViewClicked);
     connect(pushButtonFetchPrices, &QPushButton::clicked, this, &Browser::onPushButtonFetchPricesClicked);
+    connect(pushButtonSequence, &QPushButton::clicked, this, &Browser::onPushButtonSequenceClicked);
 
     if (QSqlDatabase::drivers().isEmpty())
         QMessageBox::information(this, tr("No database drivers found"),
@@ -339,4 +340,21 @@ void Browser::onPushButtonFetchPricesClicked()
     sqlEdit->clear();
     sqlEdit->setText(queryString);
     exec();
+}
+
+void Browser::onPushButtonSequenceClicked()
+{
+    sqlEdit->clear();
+    sqlEdit->setText("DO $$\n"
+                     "DECLARE uniqueIDValue INTEGER := NEXTVAL('AutoIncrementStudentNumberSeq');\n"
+                     "BEGIN\n"
+                     "INSERT INTO Students(name, surname, id) VALUES(CONCAT('Name ', uniqueIDValue), CONCAT('Surname ', uniqueIDValue), uniqueIDValue);\n"
+                     "END $$;");
+    exec();
+
+    sqlEdit->clear();
+    sqlEdit->setText("SELECT * FROM Students WHERE name LIKE 'Name %';");
+    exec();
+
+    sqlEdit->clear();
 }

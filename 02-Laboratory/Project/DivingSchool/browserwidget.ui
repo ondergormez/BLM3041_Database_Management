@@ -140,6 +140,13 @@
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="pushButtonSequence">
+          <property name="text">
+           <string>Sequence</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <spacer>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>

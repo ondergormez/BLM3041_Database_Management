@@ -113,6 +113,7 @@ signals:
 private slots:
     void onPushButtonStudentViewClicked();
     void onPushButtonFetchPricesClicked();
+    void onPushButtonSequenceClicked();
 };
 
 class CustomModel: public QSqlTableModel

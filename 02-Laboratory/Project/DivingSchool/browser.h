@@ -112,6 +112,7 @@ signals:
     void statusMessage(const QString &message);
 private slots:
     void onPushButtonStudentViewClicked();
+    void onPushButtonFetchPricesClicked();
 };
 
 class CustomModel: public QSqlTableModel

@@ -70,6 +70,7 @@ Browser::Browser(QWidget *parent)
     table->addAction(selectAction);
 
     connect(pushButtonStudentView, &QPushButton::clicked, this, &Browser::onPushButtonStudentViewClicked);
+    connect(pushButtonFetchPrices, &QPushButton::clicked, this, &Browser::onPushButtonFetchPricesClicked);
 
     if (QSqlDatabase::drivers().isEmpty())
         QMessageBox::information(this, tr("No database drivers found"),
@@ -323,4 +324,19 @@ void Browser::onPushButtonStudentViewClicked()
                      "FROM student_list_with_taken_lessons_view;");
     exec();
 }
+
+void Browser::onPushButtonFetchPricesClicked()
+{
+    QString queryString;
+    queryString += "SELECT lesson_id, price\n"
+                   "FROM Prices\n"
+                   "GROUP BY lesson_id, price\n"
+                   "ORDER BY price DESC\n"
+                   "LIMIT %1;";
+
+    queryString = queryString.arg(spinBoxHighPriceCount->value());
+
+    sqlEdit->clear();
+    sqlEdit->setText(queryString);
+    exec();
 }

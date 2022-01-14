@@ -73,6 +73,7 @@ Browser::Browser(QWidget *parent)
     connect(pushButtonFetchPrices, &QPushButton::clicked, this, &Browser::onPushButtonFetchPricesClicked);
     connect(pushButtonSequence, &QPushButton::clicked, this, &Browser::onPushButtonSequenceClicked);
     connect(pushButtonFindStudent, &QPushButton::clicked, this, &Browser::onPushButtonFindStudentClicked);
+    connect(pushButtonTotalPaid, &QPushButton::clicked, this, &Browser::onPushButtonTotalPaidClicked);
 
     if (QSqlDatabase::drivers().isEmpty())
         QMessageBox::information(this, tr("No database drivers found"),
@@ -364,6 +365,18 @@ void Browser::onPushButtonFindStudentClicked()
 {
     QString queryString;
     queryString += "SELECT is_student_exist('%1');";
+
+    queryString = queryString.arg(spinBoxStudentID->value());
+
+    sqlEdit->clear();
+    sqlEdit->setText(queryString);
+    exec();
+}
+
+void Browser::onPushButtonTotalPaidClicked()
+{
+    QString queryString;
+    queryString += "SELECT get_total_paid_amount('%1');";
 
     queryString = queryString.arg(spinBoxStudentID->value());
 

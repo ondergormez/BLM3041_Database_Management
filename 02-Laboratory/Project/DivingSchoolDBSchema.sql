@@ -1,10 +1,10 @@
 -- DROP VIEW student_list_with_taken_lessons_view;
 -- DROP TABLE Takes;
 -- DROP TABLE Students;
+-- DROP TABLE Prices;
 -- DROP TABLE Lessons;
 -- DROP TABLE Teachers;
 -- DROP TABLE Classes;
--- DROP TABLE Prices;
 
 -- DROP TABLE Students;
 CREATE TABLE Students(
@@ -41,7 +41,8 @@ CREATE TABLE Lessons(
 CREATE TABLE Prices(
     lesson_id CHAR(5) NOT NULL PRIMARY KEY,
     price INTEGER NOT NULL,
-	CONSTRAINT fk_prc FOREIGN KEY (lesson_id) REFERENCES Lessons (id) ON DELETE CASCADE
+	CONSTRAINT fk_prc FOREIGN KEY (lesson_id) REFERENCES Lessons (id) ON DELETE CASCADE,
+	CONSTRAINT price_ck CHECK (price < 10000)
 );
 
 -- DROP TABLE Takes;

@@ -116,6 +116,7 @@ private slots:
     void onPushButtonSequenceClicked();
     void onPushButtonFindStudentClicked();
     void onPushButtonTotalPaidClicked();
+    void onPushButtonGetAnnualRevenueClicked();
 };
 
 class CustomModel: public QSqlTableModel

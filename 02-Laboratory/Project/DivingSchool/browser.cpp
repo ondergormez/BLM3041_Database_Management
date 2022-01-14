@@ -74,6 +74,7 @@ Browser::Browser(QWidget *parent)
     connect(pushButtonSequence, &QPushButton::clicked, this, &Browser::onPushButtonSequenceClicked);
     connect(pushButtonFindStudent, &QPushButton::clicked, this, &Browser::onPushButtonFindStudentClicked);
     connect(pushButtonTotalPaid, &QPushButton::clicked, this, &Browser::onPushButtonTotalPaidClicked);
+    connect(pushButtonGetAnnualRevenue, &QPushButton::clicked, this, &Browser::onPushButtonGetAnnualRevenueClicked);
 
     if (QSqlDatabase::drivers().isEmpty())
         QMessageBox::information(this, tr("No database drivers found"),
@@ -382,5 +383,12 @@ void Browser::onPushButtonTotalPaidClicked()
 
     sqlEdit->clear();
     sqlEdit->setText(queryString);
+    exec();
+}
+
+void Browser::onPushButtonGetAnnualRevenueClicked()
+{
+    sqlEdit->clear();
+    sqlEdit->setText("SELECT get_annual_revenue();");
     exec();
 }

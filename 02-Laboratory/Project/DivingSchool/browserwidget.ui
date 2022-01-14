@@ -62,6 +62,19 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
+       <widget class="QLabel" name="label">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Öğrenci No:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QSpinBox" name="spinBoxStudentID">
         <property name="maximum">
          <number>250000</number>
@@ -83,9 +96,9 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="pushButtonGetAnnualRevenue">
         <property name="text">
-         <string>PushButton</string>
+         <string>Yıllık Okul Geliri</string>
         </property>
        </widget>
       </item>

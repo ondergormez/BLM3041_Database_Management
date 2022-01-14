@@ -53,6 +53,7 @@
 
 #include <QtWidgets>
 #include <QtSql>
+#include <QPushButton>
 
 Browser::Browser(QWidget *parent)
     : QWidget(parent)
@@ -67,6 +68,8 @@ Browser::Browser(QWidget *parent)
     table->addAction(submitAction);
     table->addAction(revertAction);
     table->addAction(selectAction);
+
+    connect(pushButtonStudentView, &QPushButton::clicked, this, &Browser::onPushButtonStudentViewClicked);
 
     if (QSqlDatabase::drivers().isEmpty())
         QMessageBox::information(this, tr("No database drivers found"),
@@ -311,4 +314,13 @@ void Browser::on_selectAction_triggered()
     QSqlTableModel * tm = qobject_cast<QSqlTableModel *>(table->model());
     if (tm)
         tm->select();
+}
+
+void Browser::onPushButtonStudentViewClicked()
+{
+    sqlEdit->clear();
+    sqlEdit->setText("SELECT *\n"
+                     "FROM student_list_with_taken_lessons_view;");
+    exec();
+}
 }

@@ -110,6 +110,13 @@
          <number>1</number>
         </property>
         <item>
+         <widget class="QPushButton" name="pushButtonStudentView">
+          <property name="text">
+           <string>Student View</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <spacer>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>

@@ -39,3 +39,7 @@ __Not: Lab dersinin 3. haftasında ilk quiz yapılacaktır.__
 - [x] [6. Lab - 9 Aralık 2021 Perşembe](06_09_12_2021.md)
 - [ ] [7. Lab - 23 Aralık 2021 Perşembe](07_23_12_2021.md)
 - [ ] [8. Lab - 30 Aralık 2021 Perşembe](08_30_12_2021.md)
+
+## Proje Ödevi
+
+[Dalış Okulu Uygulaması](Project/readme.md)
